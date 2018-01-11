@@ -1,0 +1,224 @@
+\documentclass{article}
+\usepackage{silaboUNSA3}
+
+\year{2018}
+\period{-A}
+\course{Programación de Sistemas}
+\courseCode{1303126}
+\credits{4 (Cuatro)}
+\semester{V (Quinto)}
+\prerequisites{1302220 – Arquitectura de Computadores }
+\weekTime{6}
+\theory{2}
+\practice{0}
+\laboratory{4}
+
+%descomentar el día adecuado e indicar el salón
+%\monday{09:00-11:00}{301}
+\tuesday{Martes 15:40-17:20 Laboratorio (Lab-EPIS);}
+\wednesday{Miércoles 08:40-10:20 Laboratorio (Lab-EPIS); Miércoles 10:20-12:00 Teoría (Aula 302)}
+%\thursday{08:40-10:20 (B-Lab), 10:20-12:00 (A-Lab), 12:00-13:40 (C-Lab)}
+%\friday{10:20-12:00(A-Teoría)}
+%\saturday{}
+\teacherDegree{Ingeniero de Sistemas} 
+\teacher{Alfredo Paz Valderrama}
+\profession{Ingeniero de Sistemas}
+\department{Ingeniería de Sistemas e Informática}
+\faculty{Ingeniería de Producción y Servicios}
+\school{Ingeniería de Sistemas}
+
+\begin{document}
+
+\maketitle
+
+\makeGeneralData
+
+\makeAdministrativeData
+
+\begin{motivation}
+``La ingeniería del software, los algoritmos y estructuras de datos son muy importantes: nos permiten hacer abstracciones, reusar y mantener código además de evaluar la eficiencia de los programas; sin embargo, esto puede no ser suficiente, las constantes del tiempo asintótico importan en el mundo real. Este curso permitirá entender y conocer el proceso interno de la ejecución de los programas: se explicará cómo es que los códigos fuente, traducidos a código de máquina se ejecutan a bajo nivel. Con la comprensión de esto, se podrán corregir errores que programación que afectan la seguridad y confiabilidad de los sistemas. Este curso podría ser visto como un curso para Hackers, en el sentido de que los programadores entiendan lo que ocurre detrás de bambalinas.''
+
+Los participantes del curso podrán mejorar sus habilidades de programación a bajo nivel. El curso hará uso del lenguaje de programación C dónde se estudiarán conceptos tales como: manipulicación de la memoria (punteros) y llamadas al sistema, programación a bajo nivel, procesos pesados (\emph{fork}), señales, programación \emph{Bash} y llamadas al sistema.
+\end{motivation}
+
+\begin{objective}
+  \item Comprende la representación de números en el computador, teniendo en cuenta ambientes de 32 y 64 bits y distintos tipos de datos como enteros y reales, con y sin signo, permitiendéndole encontrar, explicar y resolver problemas que afectan la ejecución correcta y segura de sistemas.
+  \item Valora como los detalles de programación a bajo nivel pueden afectar el desempeño de los sistemas en el mundo real.
+  \item Programa aplicaciones con múltiples hilos de ejecución en la máquina local y en máquinas remotas, entendiendo su necesidad y utilidad para el uso óptimo de los recursos en un contexto de multitarea.
+\end{objective}
+
+\begin{temas}
+  \module{Introducción}{
+  }{
+    \tema Motivación, explicación del sílabo, reglas del curso.
+    \tema Un entorno de programación tipo UNIX: programación en bash, variables condicionales, ciclos.
+    \tema El lenguaje de programación C: El entorno de programación, historia, tipos de datos, estructuras, punteros.
+    \tema Compilación separada, Makefile
+    \begin{lecturas}
+      \obligatoria{kernighan98}
+      \sugerida{stanfordC, stanfordPointers, stanfordUnix}
+    \end{lecturas}
+   }
+   
+   \module{Datos y memoria}{
+   }{
+      \tema Representación de Datos: Almacenamiento de la información, representación de enteros, aritmética de enteros, punto flotante.
+      \tema Representación de Programas a nivel de máquina: Codificación de programas, formato de datos, acceso a la información, operaciones lógicas y aritméticas, estructuras de control.
+      \tema Jerarquías de Memoria: Tecnologías de almacenamiento, Localidad, Jerarquías de memoria, memoria cache.
+      \begin{lecturas}
+         \obligatoria{Bryant2015}
+         \sugerida{kernighan98, stanfordC, petzold2000code}
+      \end{lecturas}
+
+   }
+   \module{Ejecución de programas}{
+   }{
+      \tema Enlace: Directores de compilación, enlace estático, archivos objeto, archivos objeto reubicables, símbolos y tablas de símbolos, resolución de símbolos, reubicación, archivos objeto ejecutables, enlace dinámico con bibliotecas compartidas, cargando y enlazando bibliotecas desde aplicaciones, código independiente de la posición, herramientas para manipular archivos objeto.
+      \tema Control de flujo excepcional: Excepciones, Procesos, Llamadas al sistema para el manejo de errores, Control de procesos, Señales, saltos no locales, herramientas.
+      \tema Entrada/Salida a nivel del sistema: Entrada/Salida en UNIX, apertura y cierre de archivos, escribiendo y leyendo archivos.
+      \begin{lecturas}
+         \obligatoria{Bryant2015}
+         \sugerida{kernighan98, stanfordC}
+      \end{lecturas}
+   }
+   \module{Redes y concurrencia}{
+   }{
+      \tema Programación de Redes: El modelo programación cliente/servidor, Redes, La internet IP global, la interfaz socket, servidores web.
+      \tema Programación Concurrente: Programación concurrente con procesos, programación concurrente con E/S multiplexada, programación concurrente con threads.
+      \begin{lecturas}
+         \obligatoria{Bryant2015, Archvadze2016}
+         \sugerida{kernighan98, stanfordC}
+      \end{lecturas}
+   }
+\end{temas}
+
+\begin{strategies}
+  \strategy{Métodos}{  
+  \begin{itemize}
+    \item Método expositivo en varias clases teóricas.
+    \item Método basado en problemas
+    \item Método basado en proyectos
+  \end{itemize}
+  }
+  \strategy{Medios}{\begin{itemize}
+    \item El curso cuenta con una página web: 
+  
+  \url{https://sites.google.com/a/episunsa.edu.pe/systemprogramming} 
+  
+    \item también se cuenta con una lista de discusión: 
+  
+  \url{https://groups.google.com/forum/#!forum/ps-episunsa}
+
+    \item se usarán las diapositivas oficiales del libro del curso
+
+    \item el software utilizado será distribuido en clases de laboratorio y usará la gamificación para el desarrollo de las tareas.
+    \end{itemize}
+  }
+  \strategy{Formas de organización}{
+    \begin{enumerate}[A)]
+      \item CLASES TEÓRICAS: En el curso tendrá una clase introductoria y varias clases magistrales, durante las clases se insentivirá la participación de los alumnos haciendo preguntas que cuestionen su conocimiento sobre los temas tratados en clase. 
+      \item SEMINARIOS: Los alumnos también expondrán temas de investigación propuestos por el profesor.
+      \item PRÁCTICAS: Los alumnos resolverán ejercicios en clases, esto les permitirá aplicar los conceptos teóricos y darles un sentido de utilidad.
+      \item LABORATORIO: Estas clases se realizarán en grupos de no más de 20 personas, en los laboratorios de la Escuela Prorfesional de Ingeniería de Sistemas.
+    \end{enumerate}
+  }
+
+  \strategy{Actividades}{El curso contará con varias tareas y un trabajo final que implique \emph{investigación formativa}}
+  \strategy{Seguimiento}{Se usará un sistema de control de versiones para el seguimiento de trabajos y tareas, esto  permitirá evaluar la dedicación y tiempo dedicados a las tareas y trabajos, así como evitar que haya copias.}
+\end{strategies}
+
+\begin{schedule}
+  \week{Tema 1}{Alfredo Paz}{6}
+  \week{Tema 1}{Alfredo Paz}{12}
+  \week{Tema 1}{Alfredo Paz}{18}
+  \week{Tema 1}{Alfredo Paz}{24}
+  \week{Tema 2}{Alfredo Paz}{29}
+  \week{Tema 2}{Alfredo Paz}{35}
+  \week{Tema 2}{Alfredo Paz}{41}
+  \week{Tema 2, Examen}{Alfredo Paz}{47}
+  \week{Tema 3}{Alfredo Paz}{53}
+  \week{Tema 3}{Alfredo Paz}{59}
+  \week{Tema 3}{Alfredo Paz}{65}
+  \week{Tema 4}{Alfredo Paz}{71}
+  \week{Tema 4}{Alfredo Paz}{76}
+  \week{Tema 4}{Alfredo Paz}{82}
+  \week{Tema 4}{Alfredo Paz}{88}
+  \week{Tema 4, sustitutorio, trabajo final}{Alfredo Paz}{94}
+  \week{Examen}{Alfredo Paz}{100}
+\end{schedule}
+
+\begin{evaluacion}
+La evaluación tendrá los siguientes componentes:
+\begin{enumerate}
+\item \textbf{Evaluación Continua.}
+  \begin{enumerate}
+    \item(NT) Nota de Trabajos e Intervencion en clase y laboratorios 40 \%
+    \item(NP) Nota del proyecto de curso 15\%
+  \end{enumerate}
+\item \textbf{Evaluación Periódica}\\
+  (NE) Nota de Examenes 45 \%, esta nota se divide en:
+  \begin{enumerate}
+    \item examen de Medio Semestre 40 \%, 
+    \item examen Final 60 \%.
+  \end{enumerate}
+\item \textbf{Examen Subsanación o Recuperación (Sustitutorio):}\\
+  Los alumnos que deseen podrán rendir una evaluación adicional que reemplazará al examen de medio semestre, dicha evaluación se dará sin apuntes.
+\end{enumerate}
+Los exámenes de medio semestre y final se tomarán con apuntes.
+
+\end{evaluacion}
+
+\begin{requirements}
+La nota final (NF) se obtiene de la siguiente manera: 
+  \begin{equation*}
+  NF = 0,45 * NE + 0,40 * NT + 0,15 * NP
+  \end{equation*}
+
+Los alumnos tendrán la oportunidad de rezagar un examen parcial con un plazo de 72 horas y por causas debidamente justificadas y autorizadas por la dirección de la escuela.
+
+Posterior a la aplicación de una prueba se realizan las siguientes actividades:
+  \begin{itemize}
+    \item publicación del patrón de respuestas,
+    \item solución de las preguntas del examen,
+    \item acceso de la prueba por parte del estudiante,
+    \item recalificación cuando es pertinente,
+    \item publicación de los resultados usando software personalizado;
+    \item después de todas estas actividades la nota es inmodificable.
+  \end{itemize}
+
+Las calificaciones se registran en la web según cronograma.
+
+Los exámenes son acumulativos.
+
+Las tareas de programación deben estar correctamente indentadas, caso contrario, el profesor podrá restar puntos o incluso califcar la tarea con nota cero.
+
+\subsection*{Nota sobre honestidad}
+
+La honestidad será un factor determinante en la evaluación: Los alumnos que tengan actitudes deshonesta en alguna de sus tareas, trabajos o exámen tendrán nota 0.
+
+\subsubsection*{Actos que se consideran deshonestos}
+
+\begin{description}
+\item [Copiar la solución de otro durante el exámen] Esto incluye mirar al compañero o usar medio electrónicos (celular, etc.)
+\item [Compartir código fuente] Copiar, cambiar de nombre a las variables, mostrar el código a un compañero, descargar el código de Internet, explicar el código a un compañero. Tener cuidado de no dejar copias de las tareas en lugares públicos.
+\item[Consultoría] Recibir ayuda en la solución de la tarea, esta puede ser en persona, por un compañero de años superiores, por foros de discusión en Internet, etc.
+\item[Realizar los trabajos individuales en grupo] Las tareas pueden tener soluciones diversas, si estas son individuales no deben reunirse para hacerlas.
+\item[Realizar las tareas grupales de manera individual] Qué sólo un compañero haga toda la tarea del grupo, que cada integrante del grupo haga una parte de la tarea, pero que no tenga idea de las demás partes. Las tareas en grupo deben ser hechas en grupo, por lo que se requiere coordinación, no sólo en la distribución del trabajo, sino en la solución de los problemas que se puedan presentar. El grupo debe trabajar como un equipo.
+\end{description}
+
+\subsubsection*{Actos que NO se consideran como deshonestos}
+\begin{description}
+\item[Explicar lo que se pide en la tarea] Se puede pedir ayuda al profesor o los compañeros para entender lo que se pide en la tarea, pero siendo cuidadosos de no explicar la solución, sólo el enunciado de lo que se pide.
+\item[Explicar los temas o conceptos] Si algún tema o concepto no se entiende, fuera del horario de clase, se puede pedir al profesor o algún compañero ayuda.
+\item[Llevar apuntes] Se pueden llevar apuntes a los exámenes y a las evaluaciones en los laboratorios, estos apuntes podrán ayudar a recordar comandos, códigos, etc.
+\end{description}
+
+\end{requirements}
+
+\begin{bibliografia}
+\end{bibliografia}
+
+%\date{Arequipa, \monthname del}
+
+
+\end{document}

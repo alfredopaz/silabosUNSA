@@ -1,0 +1,364 @@
+\ProvidesPackage{silaboUNSA}
+
+
+
+%para texto en UTF
+\usepackage{ucs}
+\usepackage[utf8x]{inputenc}
+
+%varios
+\usepackage{url}
+\usepackage[spanish]{babel}
+\usepackage{multirow}
+\usepackage{multibib}
+\usepackage{tabularx}
+\usepackage{multirow}
+%\usepackage[shortlabels]{enumerate}
+\usepackage{enumerate}
+\usepackage{datetime}
+\usepackage{amsmath}
+
+%margenes
+\usepackage[a4paper, margin=1.5cm]{geometry}
+
+
+% use appropriate package option since some distinguish between 
+% tex and tex
+%\ifpdf		
+%    \usepackage[pdftex]{graphicx}
+%	\usepackage[pdftex]{color}
+%\else
+%    \usepackage{graphicx}
+%	\usepackage{color}
+%\fi
+
+\usepackage{graphicx}
+
+\newcites{bas}{Básica}
+\newcites{com}{Complementaria}
+
+\gdef\@courseCode{}
+\gdef\courseCode#1{\gdef\@courseCode{#1}}
+
+\gdef\@course{}
+\gdef\course#1{\gdef\@course{#1}}
+
+\gdef\@credits{}
+\gdef\credits#1{\gdef\@credits{#1}}
+
+\gdef\@prerequisites{}
+\gdef\prerequisites#1{\gdef\@prerequisites{#1}}
+
+\gdef\@year{}
+\gdef\year#1{\gdef\@year{#1}}
+
+\gdef\@period{}
+\gdef\period#1{\gdef\@period{#1}}
+
+\gdef\@semester{}
+\gdef\semester#1{\gdef\@semester{#1}}
+
+\gdef\@weekTime{}
+\gdef\weekTime#1{\gdef\@weekTime{#1}}
+
+\gdef\@theory{}
+\gdef\theory#1{\gdef\@theory{#1}}
+
+\gdef\@practice{}
+\gdef\practice#1{\gdef\@practice{#1}}
+
+\gdef\@laboratory{0}
+\gdef\laboratory#1{\gdef\@laboratory{#1}}
+
+\gdef\@monday{}
+\gdef\monday#1{\gdef\@monday{#1}}
+
+\gdef\@tuesday{}
+\gdef\tuesday#1{\gdef\@tuesday{#1}}
+
+\gdef\@wednesday{}
+\gdef\wednesday#1{\gdef\@wednesday{#1}}
+
+\gdef\@thursday{}
+\gdef\thursday#1{\gdef\@thursday{#1}}
+
+\gdef\@friday{}
+\gdef\friday#1{\gdef\@friday{#1}}
+
+\gdef\@saturday{}
+\gdef\saturday#1{\gdef\@saturday{#1}}
+
+
+\gdef\@teacher{}
+\gdef\teacher#1{\gdef\@teacher{#1}}
+
+\gdef\@teacherDegree{}
+\gdef\teacherDegree#1{\gdef\@teacherDegree{#1}}
+
+\gdef\@profession{}
+\gdef\profession#1{\gdef\@profession{#1}}
+
+\gdef\@department{}
+\gdef\department#1{\gdef\@department{#1}}
+
+\gdef\@faculty{}
+\gdef\faculty#1{\gdef\@faculty{#1}}
+
+\gdef\@school{}
+\gdef\school#1{\gdef\@school{#1}}
+
+
+\def\maketitle{%
+    \begin{minipage}{2cm}
+     \includegraphics{unsa}
+    \end{minipage}
+   \hfill 
+    \begin{minipage}{16cm}
+     \begin{center}
+     \textbf{UNIVERSIDAD NACIONAL DE SAN AGUSTÍN DE AREQUIPA}\\%
+     \vspace{0.1cm}%
+     \textbf{VICE RECTORADO ACADÉMICO}\\%
+     \vspace{0.1cm}%
+       FACULTAD DE {\MakeUppercase \@faculty}\\%
+     {\MakeUppercase DEPARTAMENTO ACADÉMICO DE \@department }\\%
+     \textbf{SÍLABO } \@year \@period \\%
+     \vspace{0.3cm}%
+     \textbf{ASIGNATURA: } {\MakeUppercase \@course }\\%
+     \end{center}
+    \end{minipage}
+    \vspace{0.5cm}
+    
+}%
+
+\def\makeGeneralData{
+  \section{INFORMACIÓN ACADÉMICA}
+  \begin{tabularx}{0.9\textwidth}{|l|l|X|}
+  \hline
+  Periodo académico: & \multicolumn{2}{X|}{\@year \@period} \\
+  \hline
+  Escuela profesional: & \multicolumn{2}{X|}{\@school} \\
+  \hline
+  Código de la asignatura : & \multicolumn{2}{X|}{\@courseCode} \\
+  \hline
+  Nombre de la asignatura: & \multicolumn{2}{X|}{\@course} \\
+  \hline
+  Semestre: & \multicolumn{2}{X|}{\@semester} \\
+  \hline
+  Características: & \multicolumn{2}{X|}{Semestral} \\
+  \hline
+  Duración: & \multicolumn{2}{X|}{17 Semanas} \\
+  \hline
+  Número de horas & Teóricas: & \@theory \\
+  \cline{2-3}
+  \multirow{2}{*}{(Semestral)} & Prácticas: & \@practice\\
+  \cline{2-3}
+   & Laboratorio: & \@laboratory\\
+  \hline
+  Número de créditos: & \multicolumn{2}{X|}{\@credits} \\
+  \hline
+  Prerrequisitos: & \multicolumn{2}{X|}{\@prerequisites} \\
+  \hline
+  \end{tabularx}
+}%
+\def\makeAdministrativeData{
+  \section{INFORMACIÓN ADMINISTRATIVA}
+  %\begin{tabularx}{0.9\textwidth}{|X|X|X|X|X|}
+  \begin{tabularx}{0.9\textwidth}{|>{\hsize=.6\hsize}X|>{\hsize=.6\hsize}X|>{\hsize=.6\hsize}X|>{\hsize=.2\hsize}X|X|}
+  \hline
+    \textbf{Docente} & \textbf{Grado Académico} & \textbf{Dpto. Académico} & \textbf{Total de horas} & \textbf{Horario / Actividad} \\
+  \hline
+    \@teacher & \@teacherDegree & \@department & \@weekTime horas & 
+    {\@monday} {\@tuesday} {\@wednesday} {\@thursday} {\@friday} {\@saturday} \\
+   % \@weekTime \@monday(\@mondayRoom) \@tuesday(\@tuesdayRoom) \@wednesday(\@wednesdayRoom) \@thursday(\@thursdayRoom) \@friday(\@fridayRoom)\\
+  \hline
+  \end{tabularx}
+
+}
+
+%\renewcommand{\thesection}{\Roman{section}}
+
+\AtEndDocument{
+\vspace{1cm}
+ \begin{flushright}
+   Arequipa, {\monthname} del \@year
+ \end{flushright}
+\vspace{1cm}
+\begin{flushright}
+   \begin{tabular}{c}
+    \hline
+    \@teacher
+   \end{tabular}
+\end{flushright}
+}
+
+\newlength{\cw}
+\newlength{\lw}
+\settowidth{\lw}{|}
+%\setlength{\lw}{0.7\doublerulesep}
+\setlength{\cw}{\textwidth}
+\addtolength{\cw}{-2\tabcolsep}
+\addtolength{\cw}{-2\lw}
+
+\newlength{\cwu}
+\setlength{\cwu}{\cw}
+\addtolength{\cwu}{-3\tabcolsep}
+\addtolength{\cwu}{-2\lw}
+\addtolength{\cwu}{-.74in}
+\newcounter{conti}
+\setcounter{conti}{1}
+\newcounter{contweek}
+\setcounter{contweek}{1}
+
+\newenvironment{data}
+{
+   \section{INFORMACIÓN ACADÉMICA}
+   \begin{quote}
+}
+{\end{quote}}
+
+\newenvironment{motivation}{
+   \section{FUNDAMENTACIÓN (JUSTIFICACIÓN)}
+   \begin{quote}
+}{
+   \end{quote}
+}
+
+\newenvironment{objective}{
+   \section{COMPETENCIAS DEL CURSO}
+   \begin{quote}
+   \begin{enumerate}[a)]
+}{
+   \end{enumerate}
+   \end{quote}
+}
+
+
+\newenvironment{mylist}{
+   \begin{list}{$\bullet$}{
+      \setlength{\labelwidth}{5pt}%
+      \setlength{\leftmargin}{7pt}%
+      \setlength{\labelsep}{3pt}}%
+}
+{
+   \end{list}
+}
+
+
+\newcommand{\startObjectives}{\begin{mylist}}
+\newcommand{\finishObjectives}{\end{mylist}}
+
+\newcommand{\startTopics}{\begin{mylist}}
+\newcommand{\finishTopics}{\end{mylist}}
+
+\newcommand{\hours}[1]{#1 &}
+\newcommand{\dates}[1]{#1 &}
+\newcommand{\porcent}[1]{#1}
+
+\newcommand{\module}[3]{
+  \textbf{Unidad \arabic{conti}: #1}
+  \begin{enumerate}
+  #3
+  \end{enumerate}
+  \addtocounter{conti}{1}
+}
+
+\newcommand{\obj}{\item}
+\newcommand{\tema}{\item }
+\newcommand{\hrs}{}
+\newcommand{\fecha}{}
+\newcommand{\porc}{}
+
+\newenvironment{lecturas}
+{
+        \begin{description}
+}
+{
+        \end{description}
+}
+\newcommand{\obligatoria}[1]{\item[Lectura Obligatoria] \citebas{#1}}
+\newcommand{\sugerida}[1]{\item[Lectura Sugerida] \citecom{#1}}
+
+\newenvironment{temas}{\section{CONTENIDOS}
+  \begin{quote}
+}{
+  \end{quote}
+}
+\newcommand{\strategy}[2]{
+  %\item #1  #2
+\item \textbf{#1:} \\%
+  #2 %
+}
+\newenvironment{strategies}{
+  \section{ESTRATEGIAS DE ENSEÑANZA}
+  \begin{enumerate}
+}{
+  \end{enumerate}
+}
+
+\newcommand{\week}[3]{
+  \arabic{contweek} &  #1 & #2 & #3\% 
+  \addtocounter{contweek}{1}\\
+  \hline
+}
+\newenvironment{schedule}{\section{CRONOGRAMA ACADÉMICO}
+  \hspace{0.5cm}
+  \tabularx{0.9\textwidth}{|c|c|X|c|}
+  \hline
+  Semana & Tema/Evaluación & Docente & Avance\\
+  \hline
+}{
+  \endtabularx
+  \vspace{0.5cm}
+}
+
+\newcommand{\require}[1]{
+  \item #1
+}
+
+\newenvironment{requirements}{
+\section{REQUISITOS DE APROBACIÓN DE LA ASIGNATURA}
+\begin{quote}
+}{
+\end{quote}
+}
+
+\newenvironment{bibliografia}{
+\section{BIBLIOGRAFÍA}
+\begin{quote}
+   \renewcommand{\refnamebas}{}
+   \renewcommand{\refnamecom}{}
+   \bibliographystylebas{alpha}
+
+   \textbf{Obligatoria}
+   \vspace{-1.5cm}
+   \bibliographybas{silabo}
+   
+   \bibliographystylecom{alpha}
+   \textbf{Sugerida}
+   \vspace{-1.5cm}
+   \bibliographycom{silabo}
+}{
+\end{quote}
+}
+
+\newenvironment{metodologia}{
+\section{METODOLOGÍA}
+\begin{quote}
+}{
+\end{quote}
+}
+
+\newenvironment{evaluacion}{
+\section{ESTRATEGIAS DE EVALUACIÓN}
+\begin{quote}
+  \textbf{Evaluación del Aprendizaje}
+
+
+}{
+\end{quote}
+}
+
+\newcommand{\act}{\item}
+\newcommand{\rec}{\item}
+
+  %\AtEndDocument{Arequipa}
